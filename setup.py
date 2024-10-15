@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "motor_control_node = ugv_pkg.motor_control_node:main"
+            "motor_control_node = ugv_pkg.motor_control_node:main",
+            "battery_service_node = ugv_pkg.battery_service_node:main"
         ],
     },
 )

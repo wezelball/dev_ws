@@ -5,6 +5,7 @@ from rclpy.node import Node
 from std_srvs.srv import Trigger
 import json
 import socket
+import time
 
 class BatteryServiceNode(Node):
     def __init__(self):
@@ -15,7 +16,7 @@ class BatteryServiceNode(Node):
         self.raspberry_pi_ip = self.get_parameter('raspberry_pi_ip').get_parameter_value().string_value
         self.raspberry_pi_port = self.get_parameter('raspberry_pi_port').get_parameter_value().integer_value
 
-        # Create a ROS2 service to provide battery voltage
+        # Create a ROS2 service /get_battery_voltage to provide battery voltage
         self.srv = self.create_service(Trigger, 'get_battery_voltage', self.handle_battery_request)
 
         self.get_logger().info("battery service node has started")
@@ -41,12 +42,17 @@ class BatteryServiceNode(Node):
                 s.connect((self.raspberry_pi_ip, self.raspberry_pi_port))
 
                 # Send a feedback request to the RPi
-                request_data = {"command": "request_feedback"}
-                s.sendall(json.dumps(request_data).encode('utf-8'))
+                #request_data = {"command": "request_feedback"}
+                request_data = ""
+                command = {"T": 130}
+                s.sendall(json.dumps(command).encode('utf-8'))
 
                 # receive feedback from the RPi
                 data = s.recv(1024)
+                print(f'battery_service_node, received data: {data}')
+                # The line below is where it's failing
                 feedback = json.loads(data.decode('utf-8'))
+                print('battery service node, point 3')
                 self.get_logger().info(f'Received feedback: {feedback}')
                 return feedback
         except Exception as e:

@@ -12,6 +12,11 @@
   <depend>json</depend>
   <depend>socket</depend>
   <depend>std_srvs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>numpy</depend>
+  <depend>cv2</depend>
+
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

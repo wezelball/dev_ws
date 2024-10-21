@@ -22,7 +22,8 @@ setup(
         'console_scripts': [
             "motor_control_node = ugv_pkg.motor_control_node:main",
             "battery_service_node = ugv_pkg.battery_service_node:main",
-            "video_stream_subscriber_node = ugv_pkg.video_stream_subscriber_node:main"
+            "video_stream_subscriber_node = ugv_pkg.video_stream_subscriber_node:main",
+            "video_display_node = ugv_pkg.video_display_node:main"
         ],
     },
 )

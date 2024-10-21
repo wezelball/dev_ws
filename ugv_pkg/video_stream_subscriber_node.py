@@ -49,6 +49,19 @@ class VideoStreamSubscriberNode(Node):
                     image_message = self.br.cv2_to_imgmsg(frame, encoding="bgr8")
                     self.publisher_.publish(image_message)
 
+                    # THE LINES BELOW ARE FOR TESTING ONLY, COMMENT OUT LATER
+                    # *******************************************************
+
+                    # Display the frame using OpenCV
+                    cv2.imshow("Live Video Feed", frame)
+                    
+                    # Press 'q' to exit the video feed window
+                    if cv2.waitKey(1) & 0xFF == ord('q'):
+                        break
+
+                    # *******************************************************
+                    # THE LINES ABOVE ARE FOR TESTING ONLY, COMMENT OUT LATER
+
             except Exception as e:
                 self.get_logger().error(f'Error processing stream: {e}')
     

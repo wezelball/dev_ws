@@ -12,6 +12,7 @@
   <depend>json</depend>
   <depend>socket</depend>
   <depend>std_srvs</depend>
+  <depend>std_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>cv_bridge</depend>
   <depend>numpy</depend>

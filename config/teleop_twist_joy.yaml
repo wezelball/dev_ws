@@ -1,0 +1,3 @@
+# config/teleop_twist_joy.yaml
+teleop_node:
+  joy_config: "ps3"  # or 'xbox' if you want a default mapping

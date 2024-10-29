@@ -26,6 +26,8 @@ class MotorControlNode(Node):
         linear_velocity = msg.linear.x  # Forward/backward speed
         angular_velocity = msg.angular.z  # Left/right turning speed
 
+        #self.get_logger().info("received Twist message from /cmd_vel topic")
+
         # Prepare the JSON command with time, linear, and angular velocities
         command = {
             "T": 13,  # 13 identifies this as ROS velocity command to robot

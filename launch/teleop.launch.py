@@ -16,7 +16,9 @@ def generate_launch_description():
             package='joy',
             executable='joy_node',
             name='joy_node',
-            parameters=[{'dev': '/dev/input/js1'}]
+            parameters=[{'dev': '/dev/input/js1',
+                         'deadzone': 0.1
+                         }]
         ),
         Node(
             package='teleop_twist_joy',
@@ -29,5 +31,18 @@ def generate_launch_description():
             package='ugv_pkg',
             executable='motor_control_node',
             name='motor_control_node'
+        ),
+
+        Node(
+            package='ugv_pkg',
+            executable='video_stream_subscriber_node',
+            name='video_stream_subscriber_node'
+        ),
+
+        Node(
+            package='ugv_pkg',
+            executable='video_display_node',
+            name='video_display_node'
         )
+
     ])

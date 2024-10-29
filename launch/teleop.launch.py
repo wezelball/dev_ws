@@ -5,12 +5,11 @@ import os
 
 
 def generate_launch_description():
-    config_file = '/home/dcohen/dev_ws/install/ugv_pkg/share/ugv_pkg/config/teleop_twist_joy.yaml'
-    #config_file = os.path.join(
-    #    get_package_share_directory('ugv_pkg'),
-    #    'config',
-    #    'teleop_twist_joy.yaml'
-    #)
+    config_file = os.path.join(
+        get_package_share_directory('ugv_pkg'),
+        'config',
+        'teleop_twist_joy.yaml'
+    )
 
     return LaunchDescription([
         Node(
@@ -23,9 +22,7 @@ def generate_launch_description():
             package='teleop_twist_joy',
             executable='teleop_node',
             name='teleop_twist_joy_node',
-            #parameters=[config_file]
-            parameters=[{'enable_button': 0}]
-
+            parameters=[config_file]
         ),
 
         Node(

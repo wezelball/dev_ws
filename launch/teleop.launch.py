@@ -43,6 +43,19 @@ def generate_launch_description():
             package='ugv_pkg',
             executable='video_display_node',
             name='video_display_node'
+        ),
+        Node(
+            package='ugv_pkg',
+            executable='joystick_gimbal_control',
+            name='joystick_gimbal_control',
+            parameters=[config_file]
+        ),
+
+        Node(
+            package='ugv_pkg',
+            executable='gimbal_control_node',
+            name='gimbal_control_node'
         )
+
 
     ])

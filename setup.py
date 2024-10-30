@@ -30,7 +30,8 @@ setup(
             "video_stream_subscriber_node = ugv_pkg.video_stream_subscriber_node:main",
             "video_display_node = ugv_pkg.video_display_node:main",
             "gimbal_control_node = ugv_pkg.gimbal_control_node:main",
-            "lights_control_node = ugv_pkg.lights_control_node:main"
+            "lights_control_node = ugv_pkg.lights_control_node:main",
+            "joystick_gimbal_control = ugv_pkg.joystick_gimbal_control:main"
         ],
     },
 )

@@ -4,7 +4,7 @@ from std_msgs.msg import Float32MultiArray, Empty
 import socket
 import json
 
-GIMBAL_PORT = 5000
+GIMBAL_PORT = 7000
 RASPBERRY_PI_IP = '192.168.1.172'
 
 class GimbalControlNode(Node):

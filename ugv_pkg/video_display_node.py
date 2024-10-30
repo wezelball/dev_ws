@@ -24,7 +24,7 @@ class VideoDisplayNode(Node):
     def listener_callback(self, data):
         """Callback function to receive and display the video frames."""
         # Convert ROS Image message to OpenCV image
-        frame = self.br.imgmsg_to_cv2(data, 'bgr8')
+        frame = self.br.imgmsg_to_cv2(data, 'rgb8')
 
         # Display the frame using OpenCV
         cv2.imshow("Live Video Feed", frame)

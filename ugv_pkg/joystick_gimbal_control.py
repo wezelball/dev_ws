@@ -13,7 +13,7 @@ class JoystickGimbalControl(Node):
         self.continuous_control_pub = self.create_publisher(Float32MultiArray, 'gimbal_control_move', 10)
 
         # Parameters for axis and button mapping
-        self.enable_gimbal_button = self.declare_parameter('enable_gimbal', 1).value
+        self.enable_gimbal_button = self.declare_parameter('enable_gimbal', 9).value
         self.axis_pan = self.declare_parameter('axis_pan', 3).value
         self.axis_tilt = self.declare_parameter('axis_tilt', 4).value
         self.scale_pan = self.declare_parameter('scale_pan', 0.5).value

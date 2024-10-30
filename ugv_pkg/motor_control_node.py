@@ -46,7 +46,7 @@ class MotorControlNode(Node):
                 
                 # Send the JSON command
                 s.sendall(json.dumps(command).encode('utf-8'))
-                self.get_logger().info(f'Sent motor command: {command}')
+                #self.get_logger().info(f'Sent motor command: {command}')
         except Exception as e:
             self.get_logger().error(f'Failed to send command to Raspberry Pi: {str(e)}')
 

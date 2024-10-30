@@ -4,12 +4,12 @@ teleop_twist_joy_node:
     axis_angular.yaw: 0
     scale_linear.x: 0.4
     scale_angular.yaw: 2.5
-    enable_button: 0
+    enable_button: 9
 
 joystick_gimbal_control:
   ros__parameters:
-    axis_pan: 3
-    axis_tilt: 4
-    scale_pan: 20.0
-    scale_tilt: 20.0
-    enable_gimbal: 1
+    axis_pan: 2
+    axis_tilt: 3
+    scale_pan: -80.0
+    scale_tilt: -70.0
+    enable_gimbal: 9

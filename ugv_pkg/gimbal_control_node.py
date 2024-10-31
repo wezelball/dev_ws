@@ -49,7 +49,7 @@ class GimbalControlNode(Node):
         spd, acc = msg.data[2], msg.data[3]
         command = {"T": 133, "X": x, "Y": y, "SPD": spd, "ACC": acc}
         self.send_command(command)
-        self.get_logger().info(f"Sent basic gimbal control: {command}")
+        #self.get_logger().info(f"Sent basic gimbal control: {command}")
 
     def continuous_control_callback(self, msg):
         """Callback for continuous gimbal control."""

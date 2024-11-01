@@ -13,3 +13,7 @@ joystick_gimbal_control:
     scale_pan: -80.0
     scale_tilt: -70.0
     enable_gimbal: 9
+
+joy_node:
+  ros__parameters:
+    autorepeat_rate: 5.0

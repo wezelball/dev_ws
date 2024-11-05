@@ -23,10 +23,13 @@ class LightsControlNode(Node):
         # Subscribe to joystick messages
         self.joy_sub = self.create_subscription(Joy, 'joy', self.joy_callback, 10)
 
+        # Set up debounce time parameter, time in seconds
+        self.declare_parameter('debounce_time', 0.5)
+        self.debounce_interval = self.get_parameter('debounce_time').get_parameter_value().double_value
+        
         # Initialize LED state and debounce timestamp
         self.led_state = False
         self.last_toggle_time = 0.0
-        self.debounce_interval = 0.5    # debounce time in seconds
 
         self.get_logger().info("lights control node subscriber has started")
 
@@ -48,7 +51,7 @@ class LightsControlNode(Node):
         # Toggle LED state
         self.led_on = not self.led_on
         command = {"T": 132, "IO4": 255 if self.led_on else 0, "IO5": 255 if self.led_on else 0}
-        self.get_logger().info(f'LED command to be sent: {command}')
+        #self.get_logger().info(f'LED command to be sent: {command}')
         # Send the command over the socket
         try:
             self.sock.sendall(json.dumps(command).encode('utf-8'))

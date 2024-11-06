@@ -1,1 +1,2 @@
-ugv_pkg/__pycache__/
+__pycache__
+.venv

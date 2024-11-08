@@ -14,6 +14,7 @@ class LidarDataPublisher(Node):
         self.sock.connect(('192.168.1.172', 9000))  # Replace with actual IP address
         self.get_logger().info("Connected to Raspberry Pi LiDAR server.")
 
+        # How fast to update data from the LIDAR
         self.timer = self.create_timer(0.1, self.read_lidar_data)
 
     def read_lidar_data(self):
@@ -53,12 +54,12 @@ class LidarDataPublisher(Node):
         scan_msg.ranges = [float(distance) for _, distance in lidar_packet["ranges"]]
 
         # Populate range_min and range_max as per the scanner's specifications
-        scan_msg.range_min = 0.02  # Minimum valid distance (e.g., 2 cm)
-        scan_msg.range_max = 4.0   # Maximum valid distance (e.g., 4 meters)
+        scan_msg.range_min = 0.03  # Minimum valid distance (e.g., 2 cm)
+        scan_msg.range_max = 12.0   # Maximum valid distance (e.g., 4 meters)
 
         # Publish the LaserScan message
         self.lidar_pub.publish(scan_msg)
-        self.get_logger().info(f"Published LaserScan with {len(scan_msg.ranges)} points")
+        #self.get_logger().info(f"Published LaserScan with {len(scan_msg.ranges)} points")
  
 def main(args=None):
     rclpy.init(args=args)

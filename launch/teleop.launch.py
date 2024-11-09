@@ -63,5 +63,12 @@ def generate_launch_description():
             package='ugv_pkg',
             executable='lights_control_node',
             name='lights_control_node'
+        ),
+
+        Node(
+            package='ugv_pkg',
+            executable='lidar_data_publisher',
+            name='lidar_data_publisher'
         )
+
     ])
